@@ -1,4 +1,5 @@
-﻿using NetCoreTeamCity.Clients;
+﻿using Microsoft.Extensions.DependencyInjection;
+using NetCoreTeamCity.Clients;
 using NetCoreTeamCity.Services;
 
 namespace NetCoreTeamCity.Api
@@ -8,11 +9,20 @@ namespace NetCoreTeamCity.Api
         public TeamCity(string host, string userName, string password, bool usingSSL = true)
         {
             var connectionConfig = new TeamCityConnectionSettingsBuilder().ToHost(host).UsingSSL(usingSSL).AsUser(userName, password).Build();
-            var bootstrapper = new BootStrapper(connectionConfig);
+            var bootstrapper = new ServiceCollection()
+                .AddSingleton<IBuildService, BuildService>()
+                .AddSingleton<IQueuedBuildService, QueuedBuildService>()
+                .AddSingleton<IChangeService,ChangeService>()
+                .AddSingleton<ITeamCityApiClient, TeamCityApiClient>()
+                .AddSingleton(s=>connectionConfig)
+                .AddSingleton<IBuildTagsService, BuildTagsService>()
+                .AddSingleton<IBuildPinningService, BuildPinningService>()
+                .AddSingleton<IHttpClientWrapperFactory, HttpClientWrapperFactory>()
+                .BuildServiceProvider();
 
-            Builds = bootstrapper.Get<IBuildService>();
-            QueuedBuilds = bootstrapper.Get<IQueuedBuildService>();
-            Changes = bootstrapper.Get<IChangeService>();
+            Builds = bootstrapper.GetService<IBuildService>();
+            QueuedBuilds = bootstrapper.GetService<IQueuedBuildService>();
+            Changes = bootstrapper.GetService<IChangeService>();
         }
 
         public IBuildService Builds { get; }

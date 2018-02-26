@@ -1,18 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>NetCoreTeamCity.Samples</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>NetCoreTeamCity.Samples</PackageId>
     <PackageProjectUrl>https://github.com/monkey3310/netcore-teamcity-api/</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/monkey3310/netcore-teamcity-api/blob/master/LICENSE</PackageLicenseUrl>
-    <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
-    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <Version>0.1.2-beta</Version>
+	<PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
     <Description />
   </PropertyGroup>
 
