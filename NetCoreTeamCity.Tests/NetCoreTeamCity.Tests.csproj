@@ -11,15 +11,17 @@
 	<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
 	<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
 	<Version>0.1.2-beta</Version>
+	<DebugType>Full</DebugType>
 	<Description />
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FakeItEasy" Version="3.3.2" />
     <PackageReference Include="FluentAssertions" Version="4.19.2" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
-    <PackageReference Include="NUnit" Version="3.6.1" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.8.0-alpha1" />
+    <PackageReference Include="Microsoft.CodeCoverage" Version="1.0.3" />
+	  <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+	  <PackageReference Include="NUnit" Version="3.9.0" />
+	  <PackageReference Include="NUnit3TestAdapter" Version="3.9.0" />	
   </ItemGroup>
 
   <ItemGroup>

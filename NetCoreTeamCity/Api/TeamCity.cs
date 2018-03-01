@@ -18,15 +18,19 @@ namespace NetCoreTeamCity.Api
                 .AddSingleton<IBuildTagsService, BuildTagsService>()
                 .AddSingleton<IBuildPinningService, BuildPinningService>()
                 .AddSingleton<IHttpClientWrapperFactory, HttpClientWrapperFactory>()
+                .AddSingleton<IBuildTypeService,BuildServiceType>()
                 .BuildServiceProvider();
 
             Builds = bootstrapper.GetService<IBuildService>();
             QueuedBuilds = bootstrapper.GetService<IQueuedBuildService>();
             Changes = bootstrapper.GetService<IChangeService>();
+            BuildType = bootstrapper.GetService<IBuildTypeService>();
+
         }
 
         public IBuildService Builds { get; }
         public IQueuedBuildService QueuedBuilds { get; }
         public IChangeService Changes { get; }
+        public IBuildTypeService BuildType { get; }
     }
 }

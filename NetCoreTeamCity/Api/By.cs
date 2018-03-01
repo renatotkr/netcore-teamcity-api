@@ -1,6 +1,7 @@
 using NetCoreTeamCity.Locators.Branch;
 using NetCoreTeamCity.Locators.Build;
 using NetCoreTeamCity.Locators.BuildConfiguration;
+using NetCoreTeamCity.Locators.BuildType;
 using NetCoreTeamCity.Locators.Project;
 using NetCoreTeamCity.Locators.User;
 
